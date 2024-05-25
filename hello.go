@@ -18,6 +18,6 @@ func main() {
 	// snippet "fmpl" (or "fp")
 	fmt.Println("Hello World with automatic newline!")
 	// snippet "fmp"
-	fmt.Print("Hello World withoutautomatic newline\n")
+	fmt.Print("Hello World without automatic newline!\n")
 }
 
