@@ -11,7 +11,7 @@
 package main
 
 import (
-	"fmt"
+	"fmt" // import fmt package from Go standard library
 )
 
 func main() {
@@ -20,4 +20,3 @@ func main() {
 	// snippet "fmp"
 	fmt.Print("Hello World without automatic newline!\n")
 }
-
