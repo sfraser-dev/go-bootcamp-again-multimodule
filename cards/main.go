@@ -49,12 +49,12 @@ func main() {
 	fmt.Println(bs)    // [72 105 32 116 104 101 114 101]
 
 	fmt.Println("\nhand 1 to single string")
-	h1 := toSingleString(hand1)
-	fmt.Println(h1)
+	hand1SingleStr := toSingleString(hand1,":")
+	fmt.Println(hand1SingleStr)
 
 	fmt.Println("\nhand 1 reconstructed to string slice")
-	hand11 := fromSingleString(h1, ":")
-	hand11.printWholeDeck()
+	tempReconHand := fromSingleString(hand1SingleStr, ":")
+	tempReconHand.printWholeDeck()
 
 	fmt.Println("\nwrite the whole deck to file")
 	cards.writeToFile()

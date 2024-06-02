@@ -10,6 +10,10 @@ import (
 // new type called deck of type sting slice
 type deck []string
 
+const (
+	mySeperator string = ":"
+)
+
 // receiver: "extend" the functionality of the deck type via receiver
 func (d deck) printWholeDeck() {
 	for _, card := range d {
@@ -26,7 +30,7 @@ func (d deck) shuffleDeck() {
 
 // receiver
 func (d deck) writeToFile() {
-	err := os.WriteFile("myfile.txt", []byte(toSingleString(d)), 0755)
+	err := os.WriteFile("myfile.txt", []byte(toSingleString(d, mySeperator)), 0755)
 	if err != nil {
 		fmt.Println("error writing to file")
 	}
@@ -34,12 +38,12 @@ func (d deck) writeToFile() {
 
 // receiver
 func (d deck) readFromFile() {
-	var bs = []byte{}
-	bs, err := os.ReadFile("myfile.txt")
+	var myByteSlice = []byte{}
+	myByteSlice, err := os.ReadFile("myfile.txt")
 	if err != nil {
 		fmt.Println("error reading from file")
 	}
-	fmt.Println(fromSingleString(string(bs), ":"))
+	d = fromSingleString(string(myByteSlice), mySeperator)
 }
 
 // helper functions
@@ -65,12 +69,13 @@ func getOneCard() string {
 	return "Ace of Spades"
 }
 
-func toSingleString(d deck) string {
-	var s string = ""
-	for _, card := range d {
-		s = s + card + ":"
-	}
-	return s
+func toSingleString(d deck, sep string) (theStr string) {
+	// var s string = ""
+	// for _, card := range d {
+	// 	s = s + card + sep
+	// }
+	theStr = strings.Join(d, sep)
+	return theStr
 }
 
 func fromSingleString(s string, sep string) (d deck) {
