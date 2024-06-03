@@ -1,4 +1,4 @@
-package main
+package deck
 
 import (
 	"fmt"
@@ -8,29 +8,29 @@ import (
 )
 
 // new type called deck of type sting slice
-type deck []string
+type theDeck []string
 
 const (
-	mySeperator string = ":"
+	MySeperator string = ":"
 )
 
 // receiver: "extend" the functionality of the deck type via receiver
-func (d deck) printWholeDeck() {
+func (d theDeck) PrintWholeDeck() {
 	for _, card := range d {
 		fmt.Printf("%25s\n", card)
 	}
 }
 
 // receiver
-func (d deck) shuffleDeck() {
+func (d theDeck) ShuffleDeck() {
 	rand.Shuffle(len(d), func(i, j int) {
 		d[i], d[j] = d[j], d[i]
 	})
 }
 
 // receiver
-func (d deck) writeToFile(filename string) {
-	err := os.WriteFile(filename, []byte(toSingleString(d, mySeperator)), 0755)
+func (d theDeck) WriteToFile(filename string) {
+	err := os.WriteFile(filename, []byte(ToSingleString(d, MySeperator)), 0755)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -38,18 +38,18 @@ func (d deck) writeToFile(filename string) {
 }
 
 // helper functions
-func readFromFile(filename string) (myStrSlice []string) {
+func ReadFromFile(filename string) (myStrSlice []string) {
 	var myByteSlice = []byte{}
 	myByteSlice, err := os.ReadFile(filename)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	return fromSingleString(string(myByteSlice), mySeperator)
+	return FromSingleString(string(myByteSlice), MySeperator)
 }
 
-func newDeck() deck {
-	cards := deck{}
+func NewDeck() theDeck {
+	cards := theDeck{}
 	// creating two LISTS, suits and numbers
 	suits := [4]string{"Clubs", "Diamonds", "Hearts", "Spades"}
 	numbers := [13]string{"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"}
@@ -62,11 +62,11 @@ func newDeck() deck {
 	return cards
 }
 
-func deal(d deck, handSize int) (hand deck, remainingCards deck) {
+func Deal(d theDeck, handSize int) (hand theDeck, remainingCards theDeck) {
 	return d[:handSize], d[handSize:]
 }
 
-func toSingleString(d deck, sep string) (theStr string) {
+func ToSingleString(d theDeck, sep string) (theStr string) {
 	// var s string = ""
 	// for _, card := range d {
 	// 	s = s + card + sep
@@ -75,7 +75,7 @@ func toSingleString(d deck, sep string) (theStr string) {
 	return theStr
 }
 
-func fromSingleString(s string, sep string) (d deck) {
+func FromSingleString(s string, sep string) (d theDeck) {
 	d = strings.Split(s, sep)
 	return d
 }

@@ -1,4 +1,4 @@
-package main
+package deck
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ import (
 // To run the tests, execute the command: go test 
 
 func Test_newDeckOfCards(t *testing.T) {
-	d := newDeck()
+	d := NewDeck()
 
 	// number of cards generated
 	if len(d) != 52 {
@@ -21,7 +21,7 @@ func Test_newDeckOfCards(t *testing.T) {
 	}
 
 	// to single string
-	dSingleString := toSingleString(d, ":")
+	dSingleString := ToSingleString(d, ":")
 	fmt.Println(dSingleString)
 
 	// regex search for /of Spades/
@@ -93,12 +93,12 @@ func Test_newDeckOfCards(t *testing.T) {
 func Test_saveDeckToFileAndReadDeckFromFile(t *testing.T) {
 	os.Remove("_deckTesting.log")
 
-	dOut := newDeck()
+	dOut := NewDeck()
 
 	// write to file and read from file
-	dOut.writeToFile("_deckTesting.log")
+	dOut.WriteToFile("_deckTesting.log")
 
-	dIn := readFromFile("_deckTesting.log")
+	dIn := ReadFromFile("_deckTesting.log")
 
 	if len(dIn) != 52 {
 		t.Errorf("expected the deck read from file to have 52 cards, instead it had %v", len(dIn))

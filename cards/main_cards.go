@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"bitbucket.org/weebucket/odd_even/reusable"
+	"bitbucket.org/weebucket/odd_even/reusable" // we import modules which are a collection of packages
+	"bitbucket.org/weebucket/cards/deck" 		// we import modules which are a collection of packages
 )
 
 func main() {
@@ -37,21 +38,21 @@ func main() {
 		}
 	*/
 
-	var cards deck = newDeck() // new deck of cards
+	cards := deck.NewDeck()  // new deck of cards
 
 	fmt.Println("\nprint the whole deck") // receiver functions are LIKE "OOP" in Go
-	cards.printWholeDeck()
-	cards.shuffleDeck() // shuffle the deck
+	cards.PrintWholeDeck()
+	cards.ShuffleDeck() // shuffle the deck
 	fmt.Println("\nprint the shuffled deck")
-	cards.printWholeDeck()
+	cards.PrintWholeDeck()
 
 	fmt.Println("\ndeal two hands of 5 cards")
-	hand1, remainingCards := deal(cards, 5)
+	hand1, remainingCards := deck.Deal(cards, 5)
 	fmt.Println("hand1:")
-	hand1.printWholeDeck()
+	hand1.PrintWholeDeck()
 	fmt.Println("hand2:")
-	hand2, _ := deal(remainingCards, 5)
-	hand2.printWholeDeck()
+	hand2, _ := deck.Deal(remainingCards, 5)
+	hand2.PrintWholeDeck()
 
 	fmt.Println("\nbyte slice interlude")
 	hiStr := "Hi there"
@@ -60,19 +61,19 @@ func main() {
 	fmt.Println(bs)    // [72 105 32 116 104 101 114 101]
 
 	fmt.Println("\nhand 1 to single string")
-	hand1SingleStr := toSingleString(hand1, ":")
+	hand1SingleStr := deck.ToSingleString(hand1, ":")
 	fmt.Println(hand1SingleStr)
 
 	fmt.Println("\nhand 1 reconstructed to string slice")
-	tempReconHand := fromSingleString(hand1SingleStr, ":")
-	tempReconHand.printWholeDeck()
+	tempReconHand := deck.FromSingleString(hand1SingleStr, deck.MySeperator)
+	tempReconHand.PrintWholeDeck()
 
 	fmt.Println("\nwrite the whole deck to file")
-	cards.writeToFile("myfile.txt")
+	cards.WriteToFile("myfile.txt")
 
 	fmt.Println("\nread the whole deck from file")
-	cards = readFromFile("myfile.txt")
-	cards.printWholeDeck()
+	cards = deck.ReadFromFile("myfile.txt")
+	cards.PrintWholeDeck()
 
 	fmt.Print("\nrandom number generator: ")
 	fmt.Printf("rand.Intn(10) = %3d\n", rand.Intn(10)) // [0,n)
@@ -82,5 +83,5 @@ func main() {
 	fmt.Println(len(myList))               // Go uses len function
 	fmt.Println(myList[:3])                // slice notation is [start,end), start inclusive, end exclusive
 
-	odd_even.OddEven()
+	odd_even.OddEven()						// we call an Exported function from a package
 }
