@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"bitbucket.org/weebucket/odd_even/reusable" // we import modules which are a collection of packages
-	"bitbucket.org/weebucket/cards/deck" 		// we import modules which are a collection of packages
+	"bitbucket.org/weebucket/cards/reusable"
 )
 
 func main() {
