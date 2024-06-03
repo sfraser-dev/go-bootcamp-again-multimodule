@@ -5,5 +5,6 @@ import (
 )
 
 func main() {
-	odd_even.OddEven()
+	mySlice1, mySlice2 := odd_even.OddEven()
+	odd_even.PrintOddAndEven(mySlice1, mySlice2)
 }

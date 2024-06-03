@@ -3,8 +3,9 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"bitbucket.org/weebucket/gobootcampagain/odd_even/reusable" // we import modules which are a collection of packages
-	"bitbucket.org/weebucket/gobootcampagain/cards/reusable"
+
+	deck "bitbucket.org/weebucket/gobootcampagain/cards/reusable"
+	odd_even "bitbucket.org/weebucket/gobootcampagain/odd_even/reusable" // we import modules which are a collection of packages
 )
 
 func main() {
@@ -38,7 +39,7 @@ func main() {
 		}
 	*/
 
-	cards := deck.NewDeck()  // new deck of cards
+	cards := deck.NewDeck() // new deck of cards
 
 	fmt.Println("\nprint the whole deck") // receiver functions are LIKE "OOP" in Go
 	cards.PrintWholeDeck()
@@ -83,5 +84,10 @@ func main() {
 	fmt.Println(len(myList))               // Go uses len function
 	fmt.Println(myList[:3])                // slice notation is [start,end), start inclusive, end exclusive
 
-	odd_even.OddEven()						// we call an Exported function from a package
+	fmt.Println("\nOddEven")
+	// calling Exported function OddEven() from package odd_even in module
+	// bitbucket.org/weebucket/gobootcampagain/odd_even/reusable which is in another directory
+	// (checking out packages / modules / go.mod and go.work, just seeing how it's done)
+	mySlice1, mySlice2 := odd_even.OddEven()
+	odd_even.PrintOddAndEven(mySlice1, mySlice2)
 }

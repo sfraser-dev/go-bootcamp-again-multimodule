@@ -21,7 +21,7 @@ func Test_newDeckOfCards(t *testing.T) {
 	}
 
 	// to single string
-	dSingleString := ToSingleString(d, ":")
+	dSingleString := ToSingleString(d, MySeperator)
 	fmt.Println(dSingleString)
 
 	// regex search for /of Spades/

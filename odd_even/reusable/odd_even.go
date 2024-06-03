@@ -5,22 +5,26 @@ import (
 	"math/rand"
 )
 
-func OddEven() {
-	var mySlice = []int{}
-	var myResults = []string{}
+const (
+	oddEvenSliceSize int = 10
+)
 
-	fmt.Println("\nOddEven")
-	for i := 0; i < 10; i += 1 {
-		mySlice = append(mySlice, rand.Intn(100))
-		fmt.Printf("mySlice = %v\n", mySlice)
+func OddEven() (myOddEvenSlice1 []int, myOddEvenSlice2[]string) {
+	for i := 0; i < oddEvenSliceSize; i += 1 {
+		myOddEvenSlice1 = append(myOddEvenSlice1, rand.Intn(100))
 	}
-	for i := 0; i < 10; i += 1 {
-		if mySlice[i]%2 == 0 {
-			myResults = append(myResults, "E")
+	for i := 0; i < len(myOddEvenSlice1); i += 1 {
+		if myOddEvenSlice1[i]%2 == 0 {
+			myOddEvenSlice2 = append(myOddEvenSlice2, "Even")
 		} else {
-			myResults = append(myResults, "O")
+			myOddEvenSlice2 = append(myOddEvenSlice2, "Odd")
 		}
 	}
-	fmt.Printf("myResults = %v\n", myResults)
+	return myOddEvenSlice1, myOddEvenSlice2
+}
 
+func PrintOddAndEven(mySlice1 []int, mySlice2 []string) {
+	for i := 0; i < oddEvenSliceSize; i += 1 {
+		fmt.Printf("%v is %v\n", mySlice1[i], mySlice2[i])
+	}
 }
