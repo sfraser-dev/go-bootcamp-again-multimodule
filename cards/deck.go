@@ -29,24 +29,25 @@ func (d deck) shuffleDeck() {
 }
 
 // receiver
-func (d deck) writeToFile() {
-	err := os.WriteFile("myfile.txt", []byte(toSingleString(d, mySeperator)), 0755)
+func (d deck) writeToFile(filename string) {
+	err := os.WriteFile(filename, []byte(toSingleString(d, mySeperator)), 0755)
 	if err != nil {
-		fmt.Println("error writing to file")
+		fmt.Println(err)
+		os.Exit(1)
 	}
-}
-
-// receiver
-func (d deck) readFromFile() {
-	var myByteSlice = []byte{}
-	myByteSlice, err := os.ReadFile("myfile.txt")
-	if err != nil {
-		fmt.Println("error reading from file")
-	}
-	d = fromSingleString(string(myByteSlice), mySeperator)
 }
 
 // helper functions
+func readFromFile(filename string) (myStrSlice []string) {
+	var myByteSlice = []byte{}
+	myByteSlice, err := os.ReadFile(filename)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	return fromSingleString(string(myByteSlice), mySeperator)
+}
+
 func newDeck() deck {
 	cards := deck{}
 	// creating two LISTS, suits and numbers
@@ -63,10 +64,6 @@ func newDeck() deck {
 
 func deal(d deck, handSize int) (hand deck, remainingCards deck) {
 	return d[:handSize], d[handSize:]
-}
-
-func getOneCard() string {
-	return "Ace of Spades"
 }
 
 func toSingleString(d deck, sep string) (theStr string) {
