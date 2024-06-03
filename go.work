@@ -1,0 +1,10 @@
+go 1.21.4
+
+use (
+	./cards/executable
+	./cards/reusable
+	./odd_even/executable
+	./odd_even/reusable
+	./structs/executable
+	./structs/reusable
+)

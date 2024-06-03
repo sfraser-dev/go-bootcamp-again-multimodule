@@ -4,6 +4,9 @@
 # Me
 myfile.txt
 _deckTesting.log
+# Me adding go.work
+# Go workspace file
+#go.work
 
 ### Go ###
 # If you prefer the allow list template instead of the deny list, see community template:
@@ -24,8 +27,5 @@ _deckTesting.log
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
-
-# Go workspace file
-go.work
 
 # End of https://www.toptal.com/developers/gitignore/api/go

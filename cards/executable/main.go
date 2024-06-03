@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"math/rand"
 
-	deck "bitbucket.org/weebucket/gobootcampagain/cards/reusable"
-	odd_even "bitbucket.org/weebucket/gobootcampagain/odd_even/reusable" // we import modules which are a collection of packages
+	deck "bitbucket.org/weebucket/gobootcampagain_multimodule/cards/reusable"
+	odd_even "bitbucket.org/weebucket/gobootcampagain_multimodule/odd_even/reusable" // we import modules which are a collection of packages
 )
 
 func main() {
