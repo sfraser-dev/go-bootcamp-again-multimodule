@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bitbucket.org/weebucket/odd_even/reusable"
+	"bitbucket.org/weebucket/gobootcampagain/odd_even/reusable"
 )
 
 func main() {

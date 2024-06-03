@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"bitbucket.org/weebucket/odd_even/reusable" // we import modules which are a collection of packages
-	"bitbucket.org/weebucket/cards/reusable"
+	"bitbucket.org/weebucket/gobootcampagain/odd_even/reusable" // we import modules which are a collection of packages
+	"bitbucket.org/weebucket/gobootcampagain/cards/reusable"
 )
 
 func main() {
