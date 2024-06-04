@@ -37,7 +37,7 @@ For most projects, starting with a single go.mod file at the root level is the
 recommended best practice. You can always consider splitting your project into multiple
 modules later if the need arises.
 
-Ask Bard question: "show sample of project with single go.mod in the root".
+Ask question: "show sample of project with single go.mod in the root".
 
 I have a lot of redunancy in my project. cards/executable/main.go should be my root level main.go.
 I should get rid of odd_even/executable/main.go, structs/executable/main.go too. Having all these requires
