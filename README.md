@@ -5,13 +5,11 @@ Having multiple modules in a project is generally not recommended (unless perhap
 
 Review of the review.
 
-## Multi Module Project With Go.work in Root Dir
+## Multi-Module Project With Go.work in Root Dir
 
-I have a multi module setup in this project.
+There is a multi module setup in this project.
 
-**Question: Go just a top level go.mod file for whole project recommended?**
-
-Yes, having just one top-level go.mod file for your entire Go project is generally the recommended approach, especially if you are using Go modules (which is the standard way to manage dependencies in modern Go development).
+Note, having just one top-level go.mod file in an entire Go project is generally the recommended approach, especially if using Go modules (standard way to manage dependencies in Go development).
 
 ### Reasons for a single go.mod file
 
@@ -20,27 +18,27 @@ Yes, having just one top-level go.mod file for your entire Go project is general
 - Easier Builds: You can build your entire project with a single command (go build), and Go will automatically resolve all the necessary dependencies.
 - Maintainability: Having a single go.mod file makes it easier to update dependencies and keep your project organized.
 
-### When to Consider Multiple Modules
+### Reasons for a multiple go.mod files
 
-There are some specific scenarios where you might want to use multiple modules within a larger project:
+There are some specific scenarios using multiple modules within a larger project:
 
-- Large-Scale Projects: If your project is exceptionally large and complex, breaking it down into smaller modules can help with organization and maintainability.
-- Reusable Libraries: If you have a library or component that you intend to use across multiple projects, creating a separate module for it can make it easier to version and share.
-- Independent Versioning: If different parts of your project need to be versioned independently, using multiple modules can provide that flexibility.
+- Large-Scale Projects: If the project is exceptionally large and complex, breaking it down into smaller modules can help with organization and maintainability.
+- Reusable Libraries: If there is a library or component that I intend to use across multiple projects, creating a separate module for it can make it easier to version and share.
+- Independent Versioning: If different parts of the project need to be versioned independently, using multiple modules can provide this flexibility.
 
 Important Considerations:
 
-- Increased Complexity: Managing multiple modules adds complexity to your project setup and dependency management.
-- Potential Conflicts: You need to be careful to avoid dependency conflicts between modules, especially if they rely on different versions of the same package.
-- Module Replacement: If you do use multiple modules and need to reference local copies of certain modules for development, you can use the replace directive in your go.mod files.
+- Increased Complexity: Managing multiple modules adds complexity to the project setup and dependency management.
+- Potential Conflicts: Need to be careful to avoid dependency conflicts between modules, especially if they rely on different versions of the same package.
+- Module Replacement: If multiple modules used and need to reference local copies of certain modules for development, can use the replace directive in go.mod files.
 
 Best Practice:
 
-For most projects, starting with a single go.mod file at the root level is the
-recommended best practice. You can always consider splitting your project into multiple
+For most projects, a single go.mod file at the root level is the
+recommended best practice. Can always consider splitting your project into multiple
 modules later if the need arises.
 
-Ask question: "show sample of project with single go.mod in the root".
+### Issues with this multiple go.mod file structure
 
 I have a lot of redunancy in my project. cards/executable/main.go should be my root level main.go.
 I should get rid of odd_even/executable/main.go, structs/executable/main.go too. Having all these requires
