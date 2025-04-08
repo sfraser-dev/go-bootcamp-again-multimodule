@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bitbucket.org/weebucket/go_bootcamp_again_multimodule/odd_even/reusable"
+	"github.com/sfraser-dev/go-bootcamp-again-multimodule/odd_even/reusable"
 )
 
 func main() {

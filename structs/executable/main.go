@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bitbucket.org/weebucket/go_bootcamp_again_multimodule/structs/reusable"
+	"github.com/sfraser-dev/go-bootcamp-again-multimodule/structs/reusable"
 	"fmt"
 )
 

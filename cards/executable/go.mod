@@ -1,3 +1,3 @@
-module bitbucket.org/weebucket/go_bootcamp_again_multimodule/cards/executable
+module github.com/sfraser-dev/go-bootcamp-again-multimodule/cards/executable
 
 go 1.21.4
